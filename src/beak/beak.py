@@ -24,7 +24,8 @@ class Beak:
             if dry_run:
                 continue
 
-            urllib.request.urlretrieve(url, os.path.basename(url))
+            urllib.request.urlretrieve(url, os.path.join(
+                self._output_dir, os.path.basename(url)))
 
     def _get_resources_urls(self):
         resp = requests.get(self._page_url)
